@@ -1,7 +1,8 @@
 {
-    "name": "downStairs_v1",
+    "name": "downStairs_game_v1.2",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "animation": "*"
     },
     "description": "",
     "files": [
