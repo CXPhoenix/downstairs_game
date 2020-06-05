@@ -1,5 +1,5 @@
 {
-    "name": "downStairs_game_v1.2",
+    "name": "downStairs_game_v1.3",
     "dependencies": {
         "device": "*",
         "animation": "*"
