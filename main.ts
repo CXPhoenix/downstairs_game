@@ -224,10 +224,12 @@ controller.right.onEvent(ControllerButtonEvent.Released, function () {
 `)
     }
 })
+let stair2: Sprite = null
 let stairBoarder: number[] = []
 let second = false
 let zero = false
 let mainSprit: Sprite = null
+music.setVolume(15)
 info.setScore(0)
 scene.setBackgroundColor(13)
 let _wall_ = img`
@@ -316,6 +318,23 @@ b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
 `, 0, -30 - info.score() / 10)
         stair.setPosition(Math.randomRange(16, 144), 120)
         stair.z = -1
+        if (Math.percentChance(30)) {
+            stair2 = sprites.createProjectileFromSide(img`
+b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
+`, 0, -30 - info.score() / 10)
+            stair2.setPosition(Math.randomRange(16, 144), 120)
+            stair2.z = -1
+            if (stair.overlapsWith(stair2)) {
+                if (stair2.x <= stair.x) {
+                    stair2.x += stair.left - 5
+                } else {
+                    stair2.x += stair.right + 5
+                }
+            }
+        }
     } else {
         first = false
     }
